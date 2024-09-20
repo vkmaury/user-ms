@@ -12,6 +12,7 @@ import paymentRoutes from './routes/paymentRoutes';
 import webhookRoutes from './routes/webhookRoutes';
 import orderCancelRoutes from './routes/orderCancelRoutes';
 import reviewRatingRoutes from './routes/reviewRatingRoutes';
+import refferalRoutes from './routes/refferalRoutes';
 
 import dotenv from 'dotenv';
 const bodyParser = require('body-parser');
@@ -62,6 +63,7 @@ app.use('/api/v1', orderRoutes);
 app.use('/api/v1', paymentRoutes);
 app.use('/api/v1', orderCancelRoutes);
 app.use('/api/v1', reviewRatingRoutes);
+app.use('/api/v1', refferalRoutes);
 
 
 

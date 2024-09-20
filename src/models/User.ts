@@ -29,6 +29,9 @@ export interface IUser extends Document {
   isActive: boolean; // New field
   isEmailVerified: boolean; // New field
   isPhoneVerified: boolean;
+  referralCode: string;
+  referrer?: string; // Field to track who invited the user
+  walletBalance: number; // To store earned rewards
   isBlocked: boolean; // New 
   loginHistory: Date[]; // Array to store login timestamps
 }
@@ -68,6 +71,10 @@ const userSchema = new Schema<IUser>({
   isActive: { type: Boolean, default: false }, // Default to true
   isEmailVerified: { type: Boolean, default: false }, // Default to false
   isPhoneVerified: { type: Boolean, default: false },
+  referralCode: { type: String, unique: true },
+  referrer: { type: String }, // Tracks the referrer’s referralCode
+  walletBalance: { type: Number, default: 0 }, // Default balance is 0
+
   isBlocked: { type: Boolean, default: false }, // Default to true
   loginHistory: [{ type: Date }], // Define `loginHistory` as an array of dates
 });
